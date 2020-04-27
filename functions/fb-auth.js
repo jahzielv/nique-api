@@ -12,7 +12,16 @@ exports.handler = async (event, context) => {
             REDIRECT_URI
         )}&client_secret=${FB_APP_SECRET}&code=${data}`
     )
-        .then((res) => res.json())
-        .then((jsonData) => jsonData)
-        .catch((err) => err);
+        .then((res) => {
+            console.log("resolving response");
+            return res.json();
+        })
+        .then((jsonData) => {
+            console.log("resolving json data", jsonData);
+            return jsonData;
+        })
+        .catch((err) => {
+            console.log("error: ", err);
+            return err;
+        });
 };
