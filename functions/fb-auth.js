@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
             )}&client_secret=${FB_APP_SECRET}&code=${data}`
         )
             .then((res) => res.json())
-            .then((data) => resolve({ statusCode: 201, body: data }))
+            .then((data) => resolve(JSON.stringify({ statusCode: 201, body: data })))
             .catch((err) => reject(err));
     });
     return promise;
