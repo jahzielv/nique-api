@@ -20,9 +20,13 @@ exports.handler = async (event, context) => {
         console.log("fetched data");
         let jsonData = await response.json();
         console.log(`got json data: ${util.inspect(jsonData)}`);
-        const apiRes = { statusCode: 202, body: jsonData };
+        if (jsonData.error) {
+            return { statusCode: 500, body: JSON.stringify(jsonData) };
+        }
+        const apiRes = { statusCode: 202, body: JSON.stringify(jsonData) };
         return apiRes;
     } catch (error) {
         console.log("ERROR", error);
+        return error;
     }
 };
