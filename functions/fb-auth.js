@@ -1,3 +1,4 @@
+const fetch = require("node-fetch");
 const FB_APP_ID = process.env.FB_APP_ID;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 const FB_APP_SECRET = process.env.FB_APP_SECRET;
