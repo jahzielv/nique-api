@@ -1,0 +1,7 @@
+{
+  "name": "nique-api",
+  "version": "1.0.0",
+  "description": "api for Technique mobile app",
+  "main": "index.js",
+  "license": "MIT"
+}
