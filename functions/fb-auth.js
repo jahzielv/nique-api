@@ -12,5 +12,8 @@ exports.handler = async (event, context) => {
         )}&client_secret=${FB_APP_SECRET}&code=${data}`
     );
     let json = await response.json();
-    return { statusCode: 200, body: json };
+    const promise = new Promise((res, rej) => {
+        res({ statusCode: 200, body: json });
+    });
+    return promise;
 };
