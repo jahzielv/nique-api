@@ -7,6 +7,9 @@ const FB_APP_SECRET = process.env.FB_APP_SECRET;
 exports.handler = async (event, context) => {
     const data = event["queryStringParameters"]["code"];
     console.log("Function `fb-auth` invoked", data);
+    console.log(
+        `FB_APP_ID: ${FB_APP_ID}, REDIRECT_URI: ${REDIRECT_URI}, FB_APP_SECRET: ${FB_APP_SECRET}`
+    );
 
     try {
         let response = await fetch(
